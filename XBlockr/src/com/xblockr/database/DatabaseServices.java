@@ -9,7 +9,7 @@ public class DatabaseServices {
 	public static String getTag() {
 		Log.v(TAG + Thread.currentThread().getStackTrace()[1].getMethodName(),
 				"Started at " + (time = System.currentTimeMillis()));
-		Log.v(TAG, "Finished in " + (System.currentTimeMillis() - time));
+		Log.v(TAG, "Time Taken " + (System.currentTimeMillis() - time));
 		return TAG;
 	}
 }
