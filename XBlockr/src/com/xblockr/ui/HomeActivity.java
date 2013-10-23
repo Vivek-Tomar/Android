@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.view.Menu;
 
 import com.xblockr.R;
-import com.xblockr.R.layout;
-import com.xblockr.R.menu;
 import com.xblockr.utils.Util;
 
 public class HomeActivity extends Activity {
