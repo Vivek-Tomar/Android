@@ -5,13 +5,13 @@
     android:versionName="1.0" >
 
     <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17"/>
-
+<!-- com.zutubi.android.junitreport.JUnitReportTestRunner -->
     <instrumentation
-        android:name="com.zutubi.android.junitreport.JUnitReportTestRunner"
+        android:name="android.test.InstrumentationTestRunner"
         android:targetPackage="com.xblockr" />
 
     <application
-        android:allowBackup="false"
+        android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
         <uses-library android:name="android.test.runner" />
