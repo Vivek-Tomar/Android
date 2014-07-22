@@ -12,4 +12,13 @@ public class DatabaseServices {
 		Log.v(TAG, "Time Taken " + (System.currentTimeMillis() - time));
 		return TAG;
 	}
+	public static String getValue(){
+		String rValue=null;
+		try{
+			rValue="Done";
+		}catch(Exception ex){
+			rValue="Exception";
+		}
+		return rValue;
+	}
 }
