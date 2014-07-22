@@ -7,9 +7,12 @@ public class DatabaseServices {
 	static final String TAG = DatabaseServices.class.getSimpleName() + " - ";
 
 	public static String getTag() {
+	try{
 		Log.v(TAG + Thread.currentThread().getStackTrace()[1].getMethodName(),
 				"Started at " + (time = System.currentTimeMillis()));
 		Log.v(TAG, "Time Taken " + (System.currentTimeMillis() - time));
+		}catch(Exception ex){
+		}
 		return TAG;
 	}
 	public static String getValue(){
