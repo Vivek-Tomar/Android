@@ -12,4 +12,8 @@ public class DatabaseServices {
 		Log.v(TAG, "Time Taken " + (System.currentTimeMillis() - time));
 		return TAG;
 	}
+	public static String getValue(){
+		String rValue=null;
+		return rValue;
+	}
 }
