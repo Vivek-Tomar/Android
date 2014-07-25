@@ -109,7 +109,7 @@ public class NetworkServicesTest extends TestCase {
 
 	public void testGetTag() {
 		Log.v("NetworkServicesTest", "getTag");
-		String expected = "NetworkServicesTest" + " - ";
+		String expected = "DatabaseServices" + " - ";
 		assertEquals(expected, NetworkServices.getTag());
 	}
 

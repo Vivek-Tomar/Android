@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="ajrexamplecustom">
-    <property name="reports.dir" value="reports"/>
+    <property name="reports.dir" value="bin/reports"/>
+	<property name="my-avd" value="GAVED_4.2.2"/>
 
     <target name="copy-lib">
         <copy file="../../build/android-junit-report-dev.jar" todir="libs"/>
@@ -56,4 +57,34 @@
 
     <!-- An example build, run and report fetch with custom report location and multiFile turned on. -->
     <target name="custom-location" depends="copy-lib,debug,install,custom-test-and-fetch"/>
+    
+    <target name="start-emulator">
+     	<exec executable="${emulator}" failonerror="true">
+     		<arg value="-avd"/>
+    		<arg value="GAVD_4.2.2"/>
+     	</exec>
+    </target>
+    
+     <!-- The following target shows how to fetch the default coverage report using adb pull. -->
+    <target name="fetch-coverage-report" depends="init-props">
+        <echo>Downloading XML test coverage report...</echo>
+        <mkdir dir="${reports.dir}"/>
+        <exec executable="${adb}" failonerror="true">
+            <arg line="${adb.device.arg}"/>
+            <arg value="pull"/>
+            <arg value="/data/data/${tested.project.app.package}/coverage.ec"/>
+            <arg value="${reports.dir}/coverage.ec" />
+        </exec>
+    </target>
+    <target name="pmd">
+	 	<taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask"/>
+ 		<pmd shortFilenames="true">
+  			<ruleset>rulesets/favorites.xml</ruleset>
+  			<ruleset>basic</ruleset>
+  			<formatter type="html" toFile="pmd_report.html" linkPrefix="http://pmd.sourceforge.net/xref/"/>
+  			<fileset dir="/usr/local/j2sdk1.4.1_01/src/">
+   				<include name="java/lang/*.java"/>
+  			</fileset>
+ 		</pmd>
+	</target>
 </project>
